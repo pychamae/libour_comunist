@@ -7,8 +7,7 @@ char *our_strfry(const char *str)
     int pos[2];
     char temp_c;
 
-    if (str == NULL)
-        return (NULL);
+    efassert("invalid parameters", str != NULL, errno = EFAULT; return NULL);
     compt = 0;
     size = our_strlen(str);
     while (compt < size)
