@@ -1,6 +1,13 @@
 #include		"libstring.h"
 #include		<stdio.h>
 
+static char		lower(const char		c)
+{
+  if (c >= 'A' && c <= 'Z')
+    return(c + 32);
+  return(c);
+}
+
 static int		search(const unsigned char	*s1,
 			       const unsigned char	*s2,
 			       int			len)
@@ -10,16 +17,16 @@ static int		search(const unsigned char	*s1,
   i = 0;
   while (i < len)
     {
-      if (s1[i] == s2[i])
+      if (lower(s1[i]) == lower(s2[i]))
 	i += 1;
       else
-	return (s1[i] - s2[i]);
+	return (lower(s1[i]) - lower(s2[i]));
     }
   return(0);
 }
 
-int			our_strcmp(const char		*s1,
-				   const char		*s2)
+int			our_strcasecmp(const char	*s1,
+				       const char	*s2)
 {
   unsigned char		*_s1;
   unsigned char		*_s2;
