@@ -22,7 +22,11 @@ size_t		my_strlen(const char	*str);
 char		*my_string(const char	*str);
 char		*our_string(const char	*str);
 
+
+size_t		our_strnlen(const char	*str,
+			    size_t	n_max);
 char            *our_strfry(const char  *str);
+
 
 #endif	/*	OURSTRING_H		*/
 
