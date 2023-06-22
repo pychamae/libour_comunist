@@ -20,7 +20,7 @@ static int		search(const unsigned char	*s1,
       if (lower(s1[i]) == lower(s2[i]))
 	i += 1;
       else
-	return (s1[i] - s2[i]);
+	return (lower(s1[i]) - lower(s2[i]));
     }
   return(0);
 }
