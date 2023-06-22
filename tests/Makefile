@@ -28,7 +28,7 @@ all		:	$(REPORT)
 $(REPORT)	:	$(OBJ)
 	echo -n $(TEAL)
 	lcov --directory . --directory $(SRC_DIR) -c -o coverage_raw.info
-	lcov --remove coverage_raw.info '/usr/include/*' '7/*' -o coverage.info
+	lcov --remove coverage_raw.info -o coverage.info
 	genhtml -o $(REPORT) -t "LibOur" coverage.info
 
 $(OBJ)		:
