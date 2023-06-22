@@ -13,7 +13,7 @@ static int		search(const unsigned char	*s1,
       if (s1[i] == s2[i])
 	i += 1;
       else
-	return (s2[i] - s1[i]);
+	return (s1[i] - s2[i]);
     }
   return(0);
 }
@@ -40,14 +40,14 @@ int			our_strcmp(const char		*s1,
     {
       status = search(&_s1[1], &_s2[1], *_s1);
       if (status == 0)
-	return(_s2[*_s2]);
+	return(-(_s2[*_s2]));
       return(status);
     }
   else if (*_s1 > *_s2)
     {
       status = search(&_s1[1], &_s2[1], *_s2);
       if (status == 0)
-	  return(-(_s1[*_s1]));
+	  return(_s1[*_s1]);
       return(status);
     }
   else
