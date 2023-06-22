@@ -27,6 +27,7 @@ int			our_strcmp(const char	*s1,
   char			*_s2;
   int			status;
 
+  efassert("invalid parameters", s1 != NULL && s2 != NULL, errno = EFAULT; return -2;);
   _s1 = s1;
   _s2 = s2;
   while (*_s1 == 255 && *_s2 == 255)
