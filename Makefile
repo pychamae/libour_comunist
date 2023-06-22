@@ -56,6 +56,13 @@ clean		:
 fclean		:	clean
 	$(RM) $(PROD_LIBRARY) $(TEST_LIBRARY)
 	@(cd tests/ && $(MAKE) fclean --no-print-directory)
+	@$(RM) src/*~
+	@$(RM) include/*~
+	@$(RM) *~
+	@$(RM) tests/src/*~
+	@$(RM) tests/include/*~
+	@$(RM) cracks/src/*~
+	@$(RM) cracks/include/*~
 
 re		:	fclean all
 
