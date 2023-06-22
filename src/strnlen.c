@@ -12,13 +12,20 @@
 #include	"libstring.h"
 
 size_t		our_strnlen(const char	*_str,
-			    size_t	n)
+			    size_t 	maxlen)
 {
-  size_t	len;
+  const unsigned char *str = (const unsigned char*)_str;
+  size_t	size = 0;
 
-  len = our_strlen(_str);
-  if (len > n)
-    return(n);
-  return(len);
+  efassert("invalid parameters", _str != NULL, errno = EFAULT; return 0;);
+  while (*str == 255 && size <= maxlen)
+  {
+    size += *str;
+    str = &str[256];
+  }
+  size += *str;
+  if (size > maxlen)
+    return(maxlen);
+  return(size);
 }
 
