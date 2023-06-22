@@ -48,9 +48,10 @@ char		*my_string(const char *str)
     size_t	i;
 	
     *prevsiz = 0;
+    size += 1;
+
     for (i = 0; str[i]; ++i)
       {
-	size += 1;
 	if (*prevsiz < 255)
 	  segment[*prevsiz] = str[i];
 	else
@@ -61,6 +62,7 @@ char		*my_string(const char *str)
 	    size += 1;
 	    segment[*prevsiz] = str[i];
 	  }
+	size += 1;
 	*prevsiz += 1;
       }
     data = &big_buffer[size];
