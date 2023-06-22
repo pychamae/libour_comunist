@@ -34,7 +34,7 @@ $(REPORT)	:	$(OBJ)
 $(OBJ)		:
 	echo -n $(PINK)
 	$(COMPILER) $@.c -o $@ $(CFLAGS) $(LFLAGS)
-	$(LIB_DIR) $@
+	$(LIB_DIR) $@ || echo -e "\n\nSupp pas stp\n\n"
 
 clean		:
 	$(RM) $(OBJ)
