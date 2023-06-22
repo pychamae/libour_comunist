@@ -14,7 +14,7 @@
 size_t		our_strnlen(const char	*_str,
 			    size_t	n)
 {
-  int		len;
+  size_t	len;
 
   len = our_strlen(_str);
   if (len > n)
